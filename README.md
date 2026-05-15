@@ -1,0 +1,1 @@
+# This website is a Music website clone, trying to make it a little different from the original one with my own creativity, Making this for my practise purpose. Used HTML, CSS and javacript in it. Trying to make it Responsive frontend website.
