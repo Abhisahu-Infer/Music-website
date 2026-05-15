@@ -1,11 +1,254 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spotify - Web Player: Music for everyone</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="utility.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+    </style>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+    </style>
+  </head>
+
+  <body>
+    <div class="nav-bar">
+      <div class="nav-left">
+        <img src="assets/logo.svg" alt="" />
+      </div>
+      <div class="nav-center">
+        <div class="search-home-icon">
+          <span>
+            <button>
+              <img src="assets/home-icon.svg" alt="" />
+            </button>
+          </span>
+        </div>
+        <div class="search-bar flex">
+          <button>
+            <img src="assets/search-logo.svg" alt="" />
+          </button>
+          <input type="text" placeholder="what do you want me to play?" />
+          <div class="search-bar-end">
+            <button>
+              <img src="assets/search-bar-end-logo.svg" alt="" />
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="nav-right">
+        <button class="bt1">
+          <span>Explore Premium</span>
+        </button>
+        <button class="bt2">
+          <img src="assets/install-logo.svg" alt="" />
+          <span>Install App</span>
+        </button>
+        <button class="bt3">
+          <img src="assets/bell.svg" alt="" />
+        </button>
+        <button class="bt3">
+          <img src="assets/people.svg" alt="" />
+        </button>
+        <button class="bt4">
+          <div class="profile" id="profile-button">
+            <span>A</span>
+          </div>
+        </button>
+        <div class="hidden" id="profilemenu">
+          <p>Accounts</p>
+          <p>settings</p>
+          <p>logout</p>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="open-menu">
+        <img class="colour-invert menu-logo" src="assets/menu-icon.svg" alt="">
+      </div>
+      <div class="left border">
+        <img class="colour-invert cancel-logo" src="assets/cancel.svg" alt="">
+        <div class="header flex">
+          <div class="library flex justify-space">
+            <div class="library-button1">
+              <button>
+                <img src="assets/library-book.svg" class="library-icon" alt="" />
+                <h1 class="library_h1">Your library</h1>
+              </button>
+            </div>
+            <div class="library-button2">
+              <button>
+                <img class="plus" src="assets/plus-sign.svg" alt="" />
+                <span class="create">Create</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <button id="new-page-for-playlist">
+          <span>My playlist</span>
+        </button>
+        <div class="rest-of-container" id="left-content">
+          <section class="left-section1">
+            <h1>Create your first playlist</h1>
+            <p>It's easy, we'll help you</p>
+            <div>
+              <button>
+                <span>Create playlist</span>
+              </button>
+            </div>
+          </section>
+          <section class="left-section2">
+            <h1>Let's find some podcasts to follow</h1>
+            <p>We'll keep you updated on new episodes</p>
+            <button>
+              <span>Browse Podcasts</span>
+            </button>
+          </section>
+        </div>
+        <div class="left-footer">
+          <a href="https://www.spotify.com/in-en/legal/">Legal</a>
+
+          <a href="https://www.spotify.com/in-en/safetyandprivacy/">
+            Safety & Privacy Center
+          </a>
+
+          <a href="https://www.spotify.com/in-en/legal/privacy-policy/">
+            Privacy Policy
+          </a>
+
+          <a href="https://www.spotify.com/in-en/legal/cookies-policy/">
+            Cookies
+          </a>
+
+          <a href="https://www.spotify.com/in-en/legal/privacy-policy/#s3">
+            About Ads
+          </a>
+
+          <a href="https://www.spotify.com/in-en/accessibility/">
+            Accessibility
+          </a>
+
+          <a href="https://www.spotify.com/legal/cookies-policy/" target="_blank">
+            Cookies
+          </a>
+        </div>
+        <button class="language-button">
+          <img src="assets/world-logo.svg" alt="">
+          <span>English</span>
+        </button>
+      </div>
+      <div class="middle border">
+        <div class="middle-header">
+          <button class="mhbt1">All</button>
+          <button class="mhbt2">Music</button>
+          <button class="mhbt3">Podcasts</button>
+        </div>
+        <div class="middle-top">
+          <h1>Popular radio</h1>
+        </div>
+        <div class="middle-scroll-options">
+          <div class="left-arrow">
+            <button class="left-arrow-button">&lt</button>
+          </div>
+          <div class="scroll-bar">
+            <ul class="list-scroll">
+              <li class="forhover">
+                <button><img src="assets/arijit-singh.png" alt="">
+                  <p>With Sachin-Jigar, Jeet Gannguli, Amit Trivedi and more</p>
+                  <div class="play-button">
+                    <img src="assets/card-play-button.svg" alt="">
+                  </div>
+                </button>
+              </li>
+              <li class="forhover"><button><img src="assets/kk.png" alt="">
+                  <p>Public Playlist
+                    With Pritam, Vishal-Shekhar, Gajendra Verma and more</p>
+                  <div class="play-button">
+                    <img src="assets/card-play-button.svg" alt="">
+                  </div>
+                </button></li>
+              <li class="forhover"><button><img src="assets/kumar-sanu.png" alt="">
+                  <p>With Jatin-Lalit, Vinod Rathod, Alka Yagnik and more</p>
+                  <div class="play-button">
+                    <img src="assets/card-play-button.svg" alt="">
+                  </div>
+                </button></li>
+              <li class="forhover"><button><img src="assets/kishore-kumar.png" alt="">
+                  <p>With Jatin-Lalit, Vinod Rathod, Alka Yagnik and more</p>
+                  <div class="play-button">
+                    <img src="assets/card-play-button.svg" alt="">
+                  </div>
+                </button></li>
+              <li class="forhover"><button><img src="assets/shreya-Ghosal.png" alt="">
+                  <p>With Arijit Singh, A.R. Rahman, Atif Aslam and more</p>
+                  <div class="play-button">
+                    <img src="assets/card-play-button.svg" alt="">
+                  </div>
+                </button></li>
+              <li class="forhover"><button><img src="assets/siddhu.png" alt="">
+                  <p class="margin-upper">With Shubh, Prem Dhillon, AP Dhillon and more</p>
+                  <div class="play-button">
+                    <img src="assets/card-play-button.svg" alt="">
+                  </div>
+                </button></li>
+              <li class="forhover"><button><img class="alkajikiimg" src="assets/alka-ji-naya.png" alt="">
+                  <p class="margin-upper">With Vinod Rathod, Kumar Sanu, Udit-narayana and </p>
+                  <div class="play-button">
+                    <img src="assets/card-play-button.svg" alt="">
+                  </div>
+                </button></li>
+              <li class="forhover"><button><img src="assets/honey.png" alt="">
+                  <p class="margin-upper">With Guru Randhawa, Diljit Dosanjh, Pritam and more</p>
+                  <div class="play-button">
+                    <img src="assets/card-play-button.svg" alt="">
+                  </div>
+                </button></li>
+            </ul>
+          </div>
+          <div class="right-arrow">
+            <button class="right-arrow-button">&gt</button>
+          </div>
+        </div>
+      </div>
+      <div class="play-bar">
+        <div class="seekbar">
+          <div class="circle"></div>
+        </div>
+        <div class="abovebar">
+          <div class="songdetails"></div>
+          <div class="song-control-buttons">
+            <button><img class="previous" src="assets/previous.svg" alt=""></button>
+            <button><img class="play" src="assets/pausebutton.svg" alt=""></button>
+            <button><img class="next" src="assets/next-song.svg" alt=""></button>
+          </div>
+          <div class="corner-buttons">
+            <div class="songtime"></div>
+            <div class="volume-button">
+              <img src="assets/volume.svg" alt="">
+              <div class="range">
+                <input type="range", nane="volume">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="right">
+        <div class="download-page">
+          <img src="assets/download-page.png" alt="">
+        </div>
+        <div class="lower-content">
+          <h1>Download Spotify for Windows</h1>
+          <p>Enjoy high-quality audio, offline playback, and a lively friend feed to stay in tune with your friends'
+            favourites.</p>
+          <button>Download the free app</button>
+        </div>
+      </div>
+      <script src="script.js"></script>
+  </body>
+
 </html>
