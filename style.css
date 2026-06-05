@@ -39,12 +39,39 @@ body {
     border: 2px black solid;
     margin: 3px;
     border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+
+.right.closed {
+    transform: translateX(90%);
+}
+
+
+.close-logo {
+    background-color: transparent;
+    border: none;
+    width: 15px;
+    padding-left:15px;
+    padding-top: 15px;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition:0.3s ease;
+}
+
+.close-logo img {
+    width: 20px;
+}
+
+.right:hover .close-logo {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .download-page img {
     height: 200px;
     width: 370px;
-    margin-top: 60px;
+    margin-top: 40px;
     margin-left: 15px;
     mask-image: linear-gradient(to bottom, black 10%, transparent 80%);
 }
@@ -54,8 +81,9 @@ body {
     display: flex;
     flex-direction: column;
     position: relative;
-    top: 5px;
+    top: -10px;
 }
+
 
 .lower-content h1 {
     width: 150px;
@@ -66,6 +94,7 @@ body {
     line-height: 40px;
     color: white;
 }
+
 
 .lower-content p {
     font-family: Roboto;
@@ -802,10 +831,13 @@ body {
 .volume-button {
     justify-content: center;
     display: flex;
-    gap: 20px;
+    gap: 15px;
+    align-items: center;
 }
 
+
 @media (max-width: 1400px) {
+
     .left {
         position: absolute;
         left: -100%;

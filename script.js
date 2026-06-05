@@ -212,3 +212,15 @@ menu.addEventListener("click", function (e) {
 document.addEventListener("click", function () {
     menu.classList.add("hidden");
 });
+
+document.querySelector(".range").getElementsByTagName("input")[0].addEventListener("change", (e)=>{
+    console.log(e, e.target, e.target.value);
+    CurrentSong.volume = parseInt(e.target.value)/100;
+})
+
+const closebutton = document.querySelector(".close-logo");
+const right = document.querySelector(".right");
+
+closebutton.addEventListener("click", ()=>{
+    right.classList.toggle("closed");
+})
