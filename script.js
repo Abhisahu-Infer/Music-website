@@ -214,7 +214,7 @@ document.addEventListener("click", function () {
 });
 
 document.querySelector(".range").getElementsByTagName("input")[0].addEventListener("change", (e)=>{
-    console.log(e, e.target, e.target.value);
+    console.log("Setting volume to", e.target.value, "/100");
     CurrentSong.volume = parseInt(e.target.value)/100;
 })
 
@@ -223,4 +223,4 @@ const right = document.querySelector(".right");
 
 closebutton.addEventListener("click", ()=>{
     right.classList.toggle("closed");
-})
+});
