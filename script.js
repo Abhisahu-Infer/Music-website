@@ -133,9 +133,11 @@ async function main() {
 
     let getback = document.getElementById("backbtn");
 
+    if (getback) {
     getback.addEventListener("click", () => {
-        let
-    })
+        history.back();
+    });
+}
 
 }
 
@@ -177,7 +179,9 @@ document.querySelector(".cancel-logo").addEventListener("click", () => {
 //add eventlistener to the previous button
 document.querySelector(".previous").addEventListener("click", () => {
     console.log("previous");
-    let index = songs.indexOf(/songs/ + CurrentSong.src.split("/").slice(-1)[0]);
+    console.log(songs);
+    let index = songs.indexOf("/Music-website/songs/"+ CurrentSong.src.split("/").slice(-1)[0]);
+    console.log(index);
     if ((index - 1) >= 0) {
         console.log(index);
         playMusic(songs[index - 1]);
@@ -185,7 +189,7 @@ document.querySelector(".previous").addEventListener("click", () => {
 })
 
 document.querySelector(".next").addEventListener("click", () => {
-    let index = songs.indexOf(/songs/ + CurrentSong.src.split("/").slice(-1)[0]);
+    let index = songs.indexOf("/Music-website/songs/"+ CurrentSong.src.split("/").slice(-1)[0]);
     if ((index + 1) < songs.length) {
         console.log(index);
         playMusic(songs[index + 1]);
