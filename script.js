@@ -17,34 +17,18 @@ function secondsintominuteseconds(seconds) {
 
 
 async function getsongs() {
-    let response = await fetch("songs/");
-    let html = await response.text();
-
-    let div = document.createElement("div");
-    div.innerHTML = html;
-
-    let links = div.getElementsByTagName("a");
-
-    let songs = [];
-
-    for (let i = 0; i < links.length; i++) {
-        let href = links[i].getAttribute("href");
-
-        if (
-            href.endsWith(".mp3") ||
-            href.endsWith(".mp4") ||
-            href.endsWith(".wav") ||
-            href.endsWith(".m4a")
-        ) {
-            songs.push(href);
-        }
-    }
-    console.log(songs);
-    return songs;
+    return [
+        "songs/Ghibli Station - The Mini Vandals.mp3",
+        "songs/Headlands - National Sweetheart.mp3",
+        "songs/Nebula - The Grey Room-Density and Time.mp3",
+        "songs/Pulsar - The Grey Room _ Density and Time.mp3",
+        "songs/Sizzr - Schwartzy.mp3",
+        "songs/The Rainy Road - Lish Grooves.mp3"
+    ]
 }
 
 const playsecondMusic = (track) => {
-    CurrentSong.src = "songs/" + track + "mp3";
+    CurrentSong.src = track;
     CurrentSong.play();
     play.src = "assets/play-logo.svg";
     document.querySelector(".songdetails").innerHTML = decodeURIComponent(track.split("/").pop());
@@ -102,7 +86,7 @@ async function main() {
 
         for (const song of songs) {
             let songname = decodeURIComponent(song.split("/").pop()).replace(
-                "mp3",
+                ".mp3",
                 "",
             );
             songlist.innerHTML += `<li>
@@ -122,10 +106,11 @@ async function main() {
             document.querySelector(".addsongs").getElementsByTagName("li"),
         ).forEach((e) => {
             e.addEventListener("click", (element) => {
-                console.log(e.querySelector(".songinfo").firstElementChild.innerHTML);
-                playsecondMusic(
-                    e.querySelector(".songinfo").firstElementChild.innerHTML.trim(),
-                );
+                let index = Array.from(
+                    document.querySelector(".addsongs").getElementsByTagName("li")
+                ).indexOf(e);
+
+                playsecondMusic(songs[index]);
             });
         });
         //attach the event listener to the buttons
@@ -134,10 +119,10 @@ async function main() {
     let getback = document.getElementById("backbtn");
 
     if (getback) {
-    getback.addEventListener("click", () => {
-        history.back();
-    });
-}
+        getback.addEventListener("click", () => {
+            history.back();
+        });
+    }
 
 }
 
@@ -176,27 +161,31 @@ document.querySelector(".cancel-logo").addEventListener("click", () => {
     document.querySelector(".left").style.left = "-100%";
 })
 
-//add eventlistener to the previous button
+
+
 document.querySelector(".previous").addEventListener("click", () => {
-    console.log("previous");
-    console.log(songs);
-    let index = songs.indexOf("/Music-website/songs/"+ CurrentSong.src.split("/").slice(-1)[0]);
-    console.log(index);
-    if ((index - 1) >= 0) {
-        console.log(index);
+    let currentFile = decodeURIComponent("songs/" + CurrentSong.src.split("/").pop());
+    let index = songs.indexOf(currentFile);
+
+    if (index > 0) {
         playMusic(songs[index - 1]);
+    } else {
+        playMusic(songs[songs.length - 1]);
     }
-})
+});
+
 
 document.querySelector(".next").addEventListener("click", () => {
-    let index = songs.indexOf("/Music-website/songs/"+ CurrentSong.src.split("/").slice(-1)[0]);
-    if ((index + 1) < songs.length) {
-        console.log(index);
+    let currentFile = decodeURIComponent("songs/" + CurrentSong.src.split("/").pop());
+    let index = songs.indexOf(currentFile);
+
+    if (index !== -1 && index < songs.length - 1) {
         playMusic(songs[index + 1]);
     } else {
         playMusic(songs[0]);
     }
 });
+
 
 const profileBtn = document.getElementById("profile-button");
 const menu = document.getElementById("profilemenu");
@@ -217,14 +206,14 @@ document.addEventListener("click", function () {
     menu.classList.add("hidden");
 });
 
-document.querySelector(".range").getElementsByTagName("input")[0].addEventListener("change", (e)=>{
+document.querySelector(".range").getElementsByTagName("input")[0].addEventListener("change", (e) => {
     console.log("Setting volume to", e.target.value, "/100");
-    CurrentSong.volume = parseInt(e.target.value)/100;
+    CurrentSong.volume = parseInt(e.target.value) / 100;
 })
 
 const closebutton = document.querySelector(".close-logo");
 const right = document.querySelector(".right");
 
-closebutton.addEventListener("click", ()=>{
+closebutton.addEventListener("click", () => {
     right.classList.toggle("closed");
 });
